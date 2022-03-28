@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
     <head>
         <!-- Required meta tags -->
         <meta charset="utf-8">
@@ -28,14 +28,14 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <tr th:each="eachEp : ${employees}">
+                        <td th:text="${eachEp.firstName}"></td>
+                        <td th:text="${eachEp.lastName}"></td>
+                        <td th:text="${#execInfo.getNow().get(1) - eachEp.brithDay.getYear()}"></td>
+                        <td th:text="${eachEp.address+' '+ eachEp.address2}"></td>
+                        <td th:text="${eachEp.city}"></td>
+                        <td th:text="${eachEp.state}"></td>
+                        <td th:text="${eachEp.zip}"></td>
                     </tr>
                     </tbody>
                 </table>

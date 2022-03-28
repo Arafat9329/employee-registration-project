@@ -29,6 +29,7 @@ public class EmployeeController {
     public String employeeList(@Valid @ModelAttribute("employee")Employee postEmployee, BindingResult bindingResult, Model model){
 
         if (bindingResult.hasErrors()){
+            model.addAttribute("states", DataGenerator.getAllStates());
             return "employee/employee-create";
         }
         DataGenerator.saveEmployee(postEmployee);
